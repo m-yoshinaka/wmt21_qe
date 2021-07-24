@@ -1,0 +1,6 @@
+[submodule "ext_tools/mosesdecoder"]
+	path = ext_tools/mosesdecoder
+	url = https://github.com/moses-smt/mosesdecoder.git
+[submodule "ext_tools/TransQuest"]
+	path = ext_tools/TransQuest
+	url = https://github.com/TharinduDR/TransQuest.git
