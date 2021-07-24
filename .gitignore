@@ -1,0 +1,8 @@
+.archived/
+.cache/
+*.egg-info/
+__pycache__/
+/.vscode/
+/data/
+/results/
+/models/
