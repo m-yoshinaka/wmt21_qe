@@ -7,10 +7,10 @@ import numpy as np
 import pandas as pd
 from torch import manual_seed
 
-from TransQuest.examples.sentence_level.wmt_2020.common.util.normalizer import fit, un_fit  # noqa: E501
 from transquest.algo.sentence_level.siamesetransquest import SiameseTransQuestModel  # noqa:E501
 
-from wmt21_qe import stat_text
+from wmt21_qe.common import fit, un_fit
+from wmt21_qe.utils import stat_text
 from wmt21_qe.siamese_transquest.config import MODEL_NAME, MODEL_TYPE, SEED
 
 
@@ -95,9 +95,10 @@ def run_siamesetransquest(
             new_train_df_list.append(_train_df)
             new_dev_df_list.append(_dev_df)
 
-            logger.info('Results:\n{}'.format(
-                stat_text(_dev_df, 'labels', 'predictions'))
-            )
+            results_str = stat_text(
+                _dev_df, 'labels', 'predictions'
+            ).replace('\n', ', ')
+            logger.info(f'Results:  {results_str}')
 
     elif dev_df is not None:
         for _dev_df in dev_df_list:

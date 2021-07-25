@@ -1,10 +1,28 @@
 import os
 from typing import List, Optional, Tuple
 from logging import Logger
+from sklearn import preprocessing
 
 from wmt21_qe.utils import (
     find_data_file, read_annotated_file, read_test_file, format_submission
 )
+
+
+min_max_scaler = preprocessing.MinMaxScaler()
+
+
+def fit(df, label):
+    x = df[[label]].values.astype(float)
+    x_scaled = min_max_scaler.fit_transform(x)
+    df[label] = x_scaled
+    return df
+
+
+def un_fit(df, label):
+    x = df[[label]].values.astype(float)
+    x_unscaled = min_max_scaler.inverse_transform(x)
+    df[label] = x_unscaled
+    return df
 
 
 def build_dataset(

@@ -7,10 +7,10 @@ import pandas as pd
 from torch import cuda, manual_seed
 from sklearn.metrics import mean_absolute_error
 
-from TransQuest.examples.sentence_level.wmt_2020.common.util.normalizer import fit, un_fit  # noqa: E501
 from transquest.algo.sentence_level.monotransquest.evaluation import pearson_corr, spearman_corr  # noqa: E501
 from transquest.algo.sentence_level.monotransquest.run_model import MonoTransQuestModel  # noqa: E501
 
+from wmt21_qe.common import fit, un_fit
 from wmt21_qe.transquest.config import MODEL_NAME, MODEL_TYPE, SEED
 
 

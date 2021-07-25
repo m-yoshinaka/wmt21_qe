@@ -67,7 +67,7 @@ def main():
     save_results(
         train_df_list, dev_df_list, test_df_list,
         train_index_list, dev_index_list, test_index_list, languages,
-        output_dir, SUBMISSION_FILE, 'STransQuest-m', save_dev, logger
+        output_dir, SUBMISSION_FILE, 'STransQuest', save_dev, logger
     )
 
 
